@@ -1,0 +1,20 @@
+:root {
+	--bg: #4e5873;
+	--detail: #545f7f;
+	--text: #e2e3e4;
+
+	--lightbg: #414e6e;
+	--hoverbg: #4f5a78;
+}
+
+.end-menu {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	min-width: 20%;
+	height: 100%;
+	border-left: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+}

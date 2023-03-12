@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/home/style.css">
+	<link rel="stylesheet" href="/home/partials/side-menu/style.css">
+  <link rel="stylesheet" href="/home/partials/dashboard/style.css">
+  <link rel="stylesheet" href="/home/partials/end-menu/style.css">
+	<title>Home page</title>
+</head>
+
+<body>
+	<section class="app">
+		<header class="header">
+			<div class="header-item header-logo">
+				logo
+			</div>
+			<div class="header-item header-search">
+				<div class="header-searchbox">
+					<input type="text" id="search" placeholder="Cerca un file...">
+					<div class="header-searchbox-icon">
+						<ion-icon name="search-outline"></ion-icon>
+					</div>
+				</div>
+			</div>
+			<div class="header-item header-profile">
+				<div class="header-profile-notification">
+					<ion-icon name="notifications-outline"></ion-icon>
+				</div>
+				<div class="header-profile-info">
+					<div class="profile-info-img">
+
+					</div>
+					<div class="profile-info-user">
+						<h3><%= name %></h3>
+						<h5><%= email %></h5>
+					</div>
+				</div>
+				<label for="logout" class="header-logout">
+          <form action="/logout" method="get" class="logout-form">
+            <div class="logout-box">
+              <div class="logout-arrow"></div>
+              <input type="submit" id="logout">
+            </div>
+          </form>
+				</label>
+			</div>
+		</header>
+		<div class="container">
+			<%- include('partials/side-menu', { permission }) %>
+			<%- include('partials/dashboard', { permission }) %>
+			<%- include('partials/end-menu') %>
+		</div>
+	</section>
+
+  <script src="/home/partials/side-menu/script.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

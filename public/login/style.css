@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Roboto:wght@300;500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'roboto', sans-serif;
+}
+
+body {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+
+	--bg: #4e5873;
+	--detail: #545f7f;
+	--text: #e2e3e4;
+}
+
+section {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, #37415c, #3d4a6a);
+}
+
+
+/* header */
+
+section .login-header {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	min-height: 130px;
+	max-height: 130px;
+	padding: 0 100px;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+section .login-header .logo {
+	text-transform: uppercase;
+	font-size: 45px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	color: var(--text);
+}
+
+/* end header */
+
+
+
+
+
+/* login-container */
+
+section .login-section {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+section .login-section .login-container {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 400px;
+	height: 500px;
+	padding: 15px;
+	box-shadow: 5px 5px 45px rgba(0, 0, 0, 0.4), inset 5px 5px 20px rgba(255, 255, 255, 0.15);
+}
+
+
+/* title */
+
+section .login-section .login-container .login-title {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	min-height: 25%;
+	max-height: 25%;
+	padding: 0 20px;
+}
+
+section .login-section .login-container .login-title h1 {
+	color: var(--text);
+	font-weight: 300;
+	font-size: 34px;
+	letter-spacing: 1px;
+}	
+
+
+
+/* inputs */
+
+section .login-section .login-container .login-form {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	gap: 20px;
+	padding: 5px 40px;
+}
+
+section .login-section .login-container .login-input {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 25%;
+}
+
+section .login-section .login-container .login-input.login-submit {
+	height: 50%;
+}
+
+section .login-section .login-container .login-input .form-input{
+	position: relative;
+	width: 100%;
+	height: 40px;
+	outline: none;
+	border: none;
+	background: none;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+	color: var(--text);
+	caret-color: var(--text);
+	font-size: 14px;
+	letter-spacing: 1px;
+	font-weight: 300;
+}
+
+section .login-section .login-container .login-input .input-placeholder{
+	position: absolute;
+	left: 0;
+	font-weight: 300;
+	letter-spacing: 1px;
+	font-size: 20px;
+	color: var(--text);
+	transition: 0.3s ease-out;
+}
+
+section .login-section .login-container .login-input .form-input:focus ~ .input-placeholder, 
+section .login-section .login-container .login-input .form-input:valid ~ .input-placeholder {
+	font-size: 14px;
+	transform: translateY(-25px);
+}
+
+
+
+section .login-section .login-container .login-input #form-submit {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	background: #414e6e;
+	color: var(--text);
+	font-weight: 300;
+	letter-spacing: 1px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: 0.3s ease-out;
+	font-size: 18px;
+}
+
+section .login-section .login-container .login-input #form-submit:hover {
+	background: #4f5a78;
+}
+
+
+section .login-section .login-container .login-input .form-input:-webkit-autofill,
+section .login-section .login-container .login-input .form-input:-webkit-autofill:hover, 
+section .login-section .login-container .login-input .form-input:-webkit-autofill:focus, 
+section .login-section .login-container .login-input .form-input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0) inset !important;
+}
+
+/* end login container */

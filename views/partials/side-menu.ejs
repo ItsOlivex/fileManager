@@ -1,0 +1,81 @@
+<div class="side-menu">
+	<div class="side-menu-container">
+		<div class="menu-items">
+			<div class="menu-item-row">
+				<div class="menu-item active">
+					<div class="item-icon">
+						<ion-icon name="grid-outline"></ion-icon>
+					</div>
+					<div class="item-name">
+						<h5>Dashboard</h5>
+					</div>
+				</div>
+				<div class="menu-item">
+					<div class="item-icon">
+						<ion-icon name="document-outline"></ion-icon>
+					</div>
+					<div class="item-name">
+						<h5>Files</h5>
+					</div>
+				</div>
+			</div>
+			<div class="menu-item-row">
+				<div class="menu-item">
+					<div class="item-icon">
+						<ion-icon name="share-outline"></ion-icon>
+					</div>
+					<div class="item-name">
+						<h5>Condivisi</h5>
+					</div>
+				</div>
+				<div class="menu-item">
+					<div class="item-icon">
+						<ion-icon name="create-outline"></ion-icon>
+					</div>
+					<div class="item-name">
+						<h5>Editor</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    <% if (permission == 1) { %>
+    <div class="menu-items-reserved">
+      <div class="menu-item-row">
+          <div class="menu-item">
+              <div class="item-icon">
+                  <ion-icon name="people-outline"></ion-icon>
+              </div>
+              <div class="item-name">
+                  <h5>Accounts</h5>
+              </div>
+          </div>
+          <div class="menu-item">
+              <div class="item-icon">
+                  <ion-icon name="bar-chart-outline"></ion-icon>
+              </div>
+              <div class="item-name">
+                  <h5>Statistics</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+  <% } %>
+  </div>
+	
+	<div class="side-menu-storage">
+		<div class="storage-container">
+			<div class="storage-item storage-used">
+        <h2>15.56 GB</h2>
+      </div>
+      <div class="storage-item storage-total">
+        <h3>52% used - 30GB Total</h3>
+      </div>
+      <div class="storage-item storage-bar-container">
+        <div class="storage-bar">
+         <div class="storage-bar-width"></div> 
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
