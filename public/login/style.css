@@ -40,15 +40,15 @@ section .login-header {
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	min-height: 130px;
-	max-height: 130px;
+	min-height: 9vh;
+	max-height: 9vh;
 	padding: 0 100px;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 section .login-header .logo {
 	text-transform: uppercase;
-	font-size: 45px;
+	font-size: 3.5vh;
 	font-weight: 500;
 	letter-spacing: 1px;
 	color: var(--text);
@@ -77,8 +77,8 @@ section .login-section .login-container {
 	justify-content: flex-start;
 	align-items: flex-start;
 	flex-direction: column;
-	width: 400px;
-	height: 500px;
+	width: 15.5vw;
+	height: 40vh;
 	padding: 15px;
 	box-shadow: 5px 5px 45px rgba(0, 0, 0, 0.4), inset 5px 5px 20px rgba(255, 255, 255, 0.15);
 }
@@ -92,15 +92,15 @@ section .login-section .login-container .login-title {
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	min-height: 25%;
-	max-height: 25%;
+	min-height: 9vh;
+	max-height: 9vh;
 	padding: 0 20px;
 }
 
 section .login-section .login-container .login-title h1 {
 	color: var(--text);
 	font-weight: 300;
-	font-size: 34px;
+	font-size: 2.7vh;
 	letter-spacing: 1px;
 }	
 
@@ -136,14 +136,14 @@ section .login-section .login-container .login-input.login-submit {
 section .login-section .login-container .login-input .form-input{
 	position: relative;
 	width: 100%;
-	height: 40px;
+	height: 4vh;
 	outline: none;
 	border: none;
 	background: none;
 	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 	color: var(--text);
 	caret-color: var(--text);
-	font-size: 14px;
+	font-size: 1.2vh;
 	letter-spacing: 1px;
 	font-weight: 300;
 }
@@ -153,14 +153,14 @@ section .login-section .login-container .login-input .input-placeholder{
 	left: 0;
 	font-weight: 300;
 	letter-spacing: 1px;
-	font-size: 20px;
+	font-size: 1.5vh;
 	color: var(--text);
-	transition: 0.3s ease-out;
+	transition: 0.3s ease;
 }
 
 section .login-section .login-container .login-input .form-input:focus ~ .input-placeholder, 
 section .login-section .login-container .login-input .form-input:valid ~ .input-placeholder {
-	font-size: 14px;
+	font-size: 1.1vh;
 	transform: translateY(-25px);
 }
 
