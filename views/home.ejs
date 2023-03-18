@@ -1,64 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
 	<link rel="stylesheet" href="/home/style.css">
-	<link rel="stylesheet" href="/home/partials/side-menu/style.css">
-  <link rel="stylesheet" href="/home/partials/dashboard/style.css">
-  <link rel="stylesheet" href="/home/partials/end-menu/style.css">
-	<title>Home page</title>
+
+	<title>AdminHub</title>
 </head>
-
 <body>
-	<section class="app">
-		<header class="header">
-			<div class="header-item header-logo">
-				logo
-			</div>
-			<div class="header-item header-search">
-				<div class="header-searchbox">
-					<input type="text" id="search" placeholder="Cerca un file...">
-					<div class="header-searchbox-icon">
-						<ion-icon name="search-outline"></ion-icon>
-					</div>
-				</div>
-			</div>
-			<div class="header-item header-profile">
-				<div class="header-profile-notification">
-					<ion-icon name="notifications-outline"></ion-icon>
-				</div>
-				<div class="header-profile-info">
-					<div class="profile-info-img">
 
-					</div>
-					<div class="profile-info-user">
-						<h3><%= name %></h3>
-						<h5><%= email %></h5>
-					</div>
-				</div>
-				<label for="logout" class="header-logout">
-          <form action="/logout" method="get" class="logout-form">
-            <div class="logout-box">
-              <div class="logout-arrow"></div>
-              <input type="submit" id="logout">
-            </div>
-          </form>
-				</label>
-			</div>
-		</header>
-		<div class="container">
-			<%- include('partials/side-menu', { permission }) %>
-			<%- include('partials/dashboard', { permission }) %>
-			<%- include('partials/end-menu') %>
-		</div>
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-shopping-bag-alt' ></i>
+					<span class="text">My Store</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Analytics</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Message</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Team</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
 	</section>
+	<!-- SIDEBAR -->
 
-  <script src="/home/partials/side-menu/script.js"></script>
-	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categories</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+
+      <%- include('./partials/dashboard.ejs') %>
+      <%- include('./partials/file-manager.ejs') %>
+      <div class="main-item">
+    
+      </div>
+      <div class="main-item">
+    
+      </div>
+      <div class="main-item">
+    
+      </div>
+      <div class="main-item">
+    
+      </div>
+      <div class="main-item">
+    
+      </div>
+
+
+
+
+
+
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script type="module" src="/home/script.js"></script>
 </body>
-
 </html>

@@ -1,94 +1,135 @@
-<div class="dashboard-container">
-  <div class="dashboard-item dashboard active">
-    <div class="dashboard-top">
-      <div class="top-folders">
-        <div class="top-folder">
-          <div class="folder-icon-container">
-            <div class="folder-icon" style="--folder-color: #8985f4;--folder-shadow: #514e85;"></div>
-          </div>
-          <div class="folder-info">
-            <h2>Cartella1</h2>
-            <div class="folder-subinfo">
-              <h5>12 files</h5>
-              <h5>10GB</h5>
-            </div>
-          </div>
-        </div>
-        <div class="top-folder">
-          <div class="folder-icon-container">
-            <div class="folder-icon" style="--folder-color: #2fe6c8;--folder-shadow: #3d8593;"></div>
-          </div>
-          <div class="folder-info">
-            <h2>Cartella2</h2>
-            <div class="folder-subinfo">
-              <h5>4 files</h5>
-              <h5>200MB</h5>
-            </div>
-          </div>
-        </div>
-        <div class="top-folder">
-          <div class="folder-icon-container">
-            <div class="folder-icon" style="--folder-color: #fdbb64;--folder-shadow: #86746a;"></div>
-          </div>
-          <div class="folder-info">
-            <h2>Cartella3</h2>
-            <div class="folder-subinfo">
-              <h5>30 files</h5>
-              <h5>4GB</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="main-item active">
+  <div class="head-title">
+    <div class="left">
+      <h1>Dashboard</h1>
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+          <a class="active" href="#">Home</a>
+        </li>
+      </ul>
     </div>
-    <div class="dashboard-bottom">
-      <div class="bottom-item">
-        <div class="bottom-title">
-          <h2>Caricati di recente</h2>
-        </div>
-        <div class="bottom-files">
-          <% for(let i = 0; i < 10; i++) { %>
-          <div class="bottom-file">
-            <div class="file-icon">
-              <ion-icon name="document-outline"></ion-icon>
-            </div>
-            <div class="file-info">
-              <div class="file-name">
-                <h3>Nome.txt</h3>
-                <h5>12-3-2023</h5>
-              </div>
-              <div class="file-size">
-                <h4>12MB</h4>
-              </div>
-            </div>
-          </div>
-          <% } %>
-        </div>
-      </div>
-      <div class="bottom-item">
-        <div class="bottom-title">
-          <h2>File Manager</h2>
-        </div>
-        <div class="bottom-folders">
+    <a href="#" class="btn-download">
+      <i class='bx bxs-cloud-download'></i>
+      <span class="text">Download PDF</span>
+    </a>
+  </div>
 
-        </div>
+  <ul class="box-info">
+    <li>
+      <i class='bx bxs-calendar-check'></i>
+      <span class="text">
+        <h3>1020</h3>
+        <p>New Order</p>
+      </span>
+    </li>
+    <li>
+      <i class='bx bxs-group'></i>
+      <span class="text">
+        <h3>2834</h3>
+        <p>Visitors</p>
+      </span>
+    </li>
+    <li>
+      <i class='bx bxs-dollar-circle'></i>
+      <span class="text">
+        <h3>$2543</h3>
+        <p>Total Sales</p>
+      </span>
+    </li>
+  </ul>
+
+
+  <div class="table-data">
+    <div class="order">
+      <div class="head">
+        <h3>Recent Orders</h3>
+        <i class='bx bx-search'></i>
+        <i class='bx bx-filter'></i>
       </div>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Date Order</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img src="img/people.png">
+              <p>John Doe</p>
+            </td>
+            <td>01-10-2021</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="img/people.png">
+              <p>John Doe</p>
+            </td>
+            <td>01-10-2021</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="img/people.png">
+              <p>John Doe</p>
+            </td>
+            <td>01-10-2021</td>
+            <td><span class="status process">Process</span></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="img/people.png">
+              <p>John Doe</p>
+            </td>
+            <td>01-10-2021</td>
+            <td><span class="status pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td>
+              <img src="img/people.png">
+              <p>John Doe</p>
+            </td>
+            <td>01-10-2021</td>
+            <td><span class="status completed">Completed</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="todo">
+      <div class="head">
+        <h3>Todos</h3>
+        <i class='bx bx-plus'></i>
+        <i class='bx bx-filter'></i>
+      </div>
+      <ul class="todo-list">
+        <li class="completed">
+          <p>Todo List</p>
+          <i class='bx bx-dots-vertical-rounded'></i>
+        </li>
+        <li class="completed">
+          <p>Todo List</p>
+          <i class='bx bx-dots-vertical-rounded'></i>
+        </li>
+        <li class="not-completed">
+          <p>Todo List</p>
+          <i class='bx bx-dots-vertical-rounded'></i>
+        </li>
+        <li class="completed">
+          <p>Todo List</p>
+          <i class='bx bx-dots-vertical-rounded'></i>
+        </li>
+        <li class="not-completed">
+          <p>Todo List</p>
+          <i class='bx bx-dots-vertical-rounded'></i>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="dashboard-item file-manager">
-
-  </div>
-  <div class="dashboard-item shared-file">
-
-  </div>
-  <div class="dashboard-item text-editor">
-
-  </div>
-  <% if (permission == 1) { %>
-  <div class="dashboard-item accounts-section">
-
-  </div>
-  <div class="dashboard-item server-status">
-
-  </div>
-  <% } %>
 </div>
