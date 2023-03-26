@@ -4,6 +4,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	transition: .2s ease;
 }
 
 a {
@@ -60,7 +61,6 @@ body {
 	background: var(--light);
 	z-index: 2000;
 	font-family: var(--lato);
-	transition: .3s ease;
 	overflow-x: hidden;
 	scrollbar-width: none;
 }
@@ -144,7 +144,6 @@ body {
 }
 #sidebar.hide .side-menu li a {
 	width: calc(48px - (4px * 2));
-	transition: width .3s ease;
 }
 #sidebar .side-menu li a.logout {
 	color: var(--red);
@@ -173,7 +172,6 @@ body {
 	width: calc(100% - 280px);
 	height: 100vh;
 	left: 280px;
-	transition: .3s ease;
 }
 #sidebar.hide ~ #content {
 	width: calc(100% - 60px);
@@ -190,6 +188,7 @@ body {
 	background: var(--light);
 	padding: 0 24px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	grid-gap: 24px;
 	font-family: var(--lato);
@@ -208,6 +207,16 @@ body {
 	border-radius: 50%;
 	box-shadow: -20px -20px 0 var(--light);
 }
+#content nav .nav-item {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 15px;
+}
+#content nav .nav-item:nth-child(2) {
+	gap: 25px;
+}
 #content nav a {
 	color: var(--dark);
 }
@@ -217,7 +226,6 @@ body {
 }
 #content nav .nav-link {
 	font-size: 16px;
-	transition: .3s ease;
 }
 #content nav .nav-link:hover {
 	color: var(--blue);
@@ -301,7 +309,6 @@ body {
 	width: calc(25px - 4px);
 	background: var(--blue);
 	border-radius: 50%;
-	transition: all .3s ease;
 }
 #content nav #switch-mode:checked + .switch-mode::before {
 	left: calc(100% - (25px - 4px) - 2px);
@@ -331,10 +338,16 @@ body {
 	flex-direction: column;
 	height: calc(100% - 56px);
 	width: calc(100% - 48px);
+	background: var(--grey);
+
+	opacity: 0;
+	transform: translateX(30px);
 	z-index: 1;
 }
 #content main .main-item.active {
-	z-index: 2;
+	z-index: 10;
+	transform: none;
+	opacity: 1;
 }
 #content main .head-title {
 	display: flex;

@@ -3,6 +3,7 @@ const express = require('express'),
 			session = require('express-session'),
 			dbConnection = require('./app/config/db-connect'),
 			loginRouter = require('./app/routes/login'),
+			fileManager = require('./app/file-manager/file-manager'),
 			homeRouter = require('./app/routes/home');
 
 const app = express();
@@ -23,12 +24,13 @@ app.use(session({
 	secret: 'secret',
 	saveUninitialized: false,
 	resave: false,
-	expire: 1000 * 60 * 60,
+	maxAge: 1000 * 60 * 60,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(loginRouter);
 app.use(homeRouter);
+app.use(fileManager);
 
 app.get('/', (req, res) => {
 	res.redirect('/login');

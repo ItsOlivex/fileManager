@@ -1,3 +1,68 @@
 <div class="main-item">
+  <div class="head-title">
+    <div class="left">
+      <h1>File manager</h1>
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">File-manager</a>
+        </li>
+        <li><i class='bx bx-chevron-right'></i></li>
+        <li>
+          <a class="active" href="#">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="file-manager-container">
+    <div class="file-manager-header">
+      <div class="header-manage-folder">
+        <div class="manage-item create-directory">
+          <i class="fa-solid fa-folder-plus"></i>
+          <h4>New directory</h4>
+        </div>
+        <div class="manage-item upload-file">
+          <i class="fa-solid fa-file-arrow-up"></i>
+          <h4>Upload file</h4>
+        </div>
+      </div>
+      <div class="header-option"></div>
+    </div>
+    <div class="file-manager-main">
+      <div class="file-manager-sidebar">
+        <div class="folder-container">
+          <div class="folder" ng-repeat="folder in folders">
+            <i class="fa-solid fa-caret-right" ng-click="showMore($index)"></i>
+            <div class="folder-name" ng-click="openFolder();">
+              <i class="fa-solid fa-folder-open"></i>
+              <h4>{{ folder.name }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="file-manager">
+        <div class="files-functions">
+          <div class="back">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div class="directory">
+            <div class="directory-item" ng-repeat="directory in directories">
+              <h3>{{ directory }}</h3>
+              <i class='bx bx-chevron-right'></i>
+            </div>
+          </div>
+        </div>
+        <div class="files">
+          <div class="file" ng-repeat="file in files">
+            <div class="file-icon">
+              <i class="fa-regular fa-file"></i>
+            </div>
+            <div class="file-name">
+              <h4>{{ file.name }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
