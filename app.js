@@ -1,6 +1,7 @@
 const express = require('express'),
 			passport = require('passport'),
 			session = require('express-session'),
+			bodyParser = require('body-parser'),
 			dbConnection = require('./app/config/db-connect'),
 			loginRouter = require('./app/routes/login'),
 			fileManager = require('./app/file-manager/file-manager'),
@@ -18,8 +19,9 @@ db.getDb().connect(err => {
 });
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
 	secret: 'secret',
 	saveUninitialized: false,

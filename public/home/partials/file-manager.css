@@ -129,6 +129,7 @@
   color: var(--dark);
   font-family: var(--lato);
   font-weight: 300;
+  left: 0px;
 }
 
 #content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.active i.fa-caret-right {
@@ -147,7 +148,8 @@
   gap: 5px;
 }
 
-#content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder .folder-name:hover {
+#content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder .folder-name:hover,
+#content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder .folder-name.active {
   background: var(--grey);
 }
 
@@ -264,7 +266,7 @@
   flex-direction: column;
   width: 80px;
   height: 100px;
-  border-radius: 20px;
+  border-radius: 15px;
   cursor: pointer;
   padding: 10px;
 }

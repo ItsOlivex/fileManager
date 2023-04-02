@@ -11,6 +11,7 @@ let authenticate = (req, res, next) => {
 			if (rawUser.length > 0) {
 				const user = db.Json(rawUser[0]);
 				req.session.id_user = user.id_user;
+				req.session.name = user.name;
 				req.session.email = user.email;
 				req.session.permission = user.permission;
 				req.session.darkMode = user.darkMode === 0 ? '' : 'dark';

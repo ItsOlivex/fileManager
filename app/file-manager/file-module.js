@@ -8,20 +8,46 @@ class file_manager {
 
   }
 
-  selectFolders(req, callback) {
-    db.getDb().query(db.queries.selectFolders, [req.session.id_user], (err, folders) => {
+  selectFolders(req, dir, callback) {
+    db.getDb().query(db.queries.selectFolders, [dir, req.session.id_user], (err, folders) => {
       if (err) throw err;
+      console.log(folders);
       if (callback) callback(db.Json(folders));
     });
   }
 
-  selectFile(req, callback) {
-    db.getDb().query(db.queries.selectFiles, [req.session.id_user], (err, files) => {
+  selectFolder(req, dir, callback) {
+    db.getDb().query(db.queries.selectFolders, [dir, req.session.id_user], (err, files) => {
       if (err) throw err;
       if (callback) callback(db.Json(files));
     });
   }
 
+  selectFolderItems(req, dir, callback) {
+    db.getDb().query(db.queries.selectFolders, [dir, req.session.id_user], (err, folders) => {
+      if (err) throw err;
+      db.getDb().query(db.queries.selectFiles, [dir, req.session.id_user], (err, files) => {
+        if (err) throw err;
+        files.forEach(file => {
+          folders.push(file);
+        });
+        if (callback) callback(db.Json(folders));
+      });
+    });
+  }
+
+
+  JsonDocument(documents) {
+    let documentJson = [];
+    documents.forEach(document => {
+      if (document.id_folder) {
+        documentJson.push({ path: document.directory, name: document.name, type: 'fa-solid fa-folder-open' });
+      } else if (document.id_file) {
+        documentJson.push({ path: document.directory, name: document.name, type: 'fa-regular fa-file' });
+      }
+    });
+    return documentJson;
+  }
 
 }
 

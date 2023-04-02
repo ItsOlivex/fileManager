@@ -33,7 +33,7 @@
         <div class="folder-container">
           <div class="folder" ng-repeat="folder in folders">
             <i class="fa-solid fa-caret-right" ng-click="showMore($index)"></i>
-            <div class="folder-name" ng-click="openFolder();">
+            <div class="folder-name" ng-click="openFolder($index);">
               <i class="fa-solid fa-folder-open"></i>
               <h4>{{ folder.name }}</h4>
             </div>
@@ -46,7 +46,7 @@
             <i class="fa-solid fa-arrow-left"></i>
           </div>
           <div class="directory">
-            <div class="directory-item" ng-repeat="directory in directories">
+            <div class="directory-item" ng-repeat="directory in directories" ng-click="navDirectory($index)">
               <h3>{{ directory }}</h3>
               <i class='bx bx-chevron-right'></i>
             </div>
@@ -55,7 +55,7 @@
         <div class="files">
           <div class="file" ng-repeat="file in files">
             <div class="file-icon">
-              <i class="fa-regular fa-file"></i>
+              <i class="{{ file.type }}"></i>
             </div>
             <div class="file-name">
               <h4>{{ file.name }}</h4>
