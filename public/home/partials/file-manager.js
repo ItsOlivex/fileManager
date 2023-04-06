@@ -10,7 +10,7 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
 
   $scope.directories = [];
 
-  $scope.showMore = (index) => {
+  $scope.showMore = (index, callback) => {
     document.querySelectorAll('.folder')[index].classList.toggle('active');
     if (document.querySelectorAll('.folder')[index].className === 'folder ng-scope active') {
       post($http, '/getFolders', { path: $scope.folders[index].path, fileName: document.querySelectorAll('.folder .folder-name h4')[index].innerHTML }, folders => {
@@ -37,8 +37,7 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
                 folderDiv.style.width = 'calc(100% - 20px)';
               } else {
                 let width = (parseInt(folderDiv.previousElementSibling.style.width.substr(12, 4)) + 20).toString();
-                console.log(width);
-                folderDiv.style.width = 'calc(100% - ' + width + 'px)';  
+                folderDiv.style.width = 'calc(100% - ' + width + 'px)';
               }
             } else {
               folderDiv.style.width = folderDiv.previousElementSibling.style.width;
@@ -50,12 +49,15 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
       let folderDiv = document.querySelectorAll(".folder");
       let length = $scope.folders.length;
       let toRemove = [];
-      for (let i = index + 1; i < length; i++) {  
+      for (let i = index + 1; i < length; i++) {
         if (parseInt(folderDiv[i].style.width.substr(12, 4)) > parseInt(folderDiv[index].style.width.substr(12, 4)) || folderDiv[index].style.width.length === 0) {
           toRemove.push(i);
         }
       }
       $scope.folders.splice(toRemove[0], toRemove.length);
+    }
+    if (callback) {
+      callback();
     }
   }
 
@@ -66,7 +68,7 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
     post($http, '/getFolderItems', { path: $scope.folders[index].path, fileName: name }, files => {
       let directories = $scope.folders[index].path.split('/');
       if (directories.length > 3) {
-        for (let i = 3 ; i < directories.length; i++) {
+        for (let i = 3; i < directories.length; i++) {
           $scope.directories.push(directories[i]);
         }
         $scope.directories.push(name);
@@ -99,7 +101,7 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
       }
     }
     $timeout(() => {
-      post($http, '/getFolderItems', { path: path, fileName: name }, files => { 
+      post($http, '/getFolderItems', { path: path, fileName: name }, files => {
         divDirectories.forEach(dir => {
           dir.classList.remove('active');
         });
@@ -108,6 +110,42 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
       });
     }, 0);
   }
+
+
+
+  $scope.fileClick = (index) => {
+    let files = document.querySelectorAll('.file');
+    let folders = document.querySelectorAll('.folder .folder-name');
+    let folderBool = false;
+    if ($scope.files[index].type === "fa-solid fa-folder-open") {
+      for (let i = 0; i < $scope.folders.length; i++) {
+        if ($scope.folders[i].name === $scope.files[index].name) {
+          folders.forEach(folder => {
+            folder.classList.remove('active');
+          });
+          folders[i].classList.add('active');
+          post($http, '/getFolderItems', { path: $scope.folders[i].path, fileName: $scope.folders[i].name }, files => {
+            $scope.files = files;
+          });
+          folderBool = true;
+          break;
+        } else {
+          folderBool = false;
+        }
+      } if (!folderBool) {
+        folders.forEach((folder, i) => {
+          if (folder.className === "folder-name active") {
+            $scope.showMore(i, () => {
+
+            });
+          }
+        });
+      }
+    } else {
+      console.log('file');
+    }
+  }
+
 
 
 
