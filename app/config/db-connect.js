@@ -13,13 +13,14 @@ class dbConnection {
 		inner join FolderAccess on FolderAccess.id_folder = Folders.id_folder
 		inner join Users on FolderAccess.id_user = Users.id_user
 		WHERE Files.directory = ? AND Users.id_user = ?;`,
+		verifyDeviceKey: `SELECT * FROM devices WHERE uniquekey = ?`,
 	}
 
 	constructor(next) {
 		this.db = mysql.createConnection({
 			host: "myfilesddns.ddns.net",
 			user: "pc",
-			password: "Motocross2004!",
+			password: "Motocross2004!6cpbhh42ay5te",
 			database: "myfiles"
 		});
 	}

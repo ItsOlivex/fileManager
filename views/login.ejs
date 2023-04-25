@@ -11,30 +11,51 @@
 
 <body>
 	<section>
-		<header class="login-header">
-			<div class="logo">LOGO</div>
-		</header>
 		<div class="login-section">
 			<div class="login-container">
+				<div class="logo">
+
+				</div>
 				<div class="login-title">
 					<h1>Accedi</h1>
 				</div>
 				<form action="/login" method="post" class="login-form">
-					<div class="login-input">
-						<input type="text" name="email" class="form-input" id="form-email" autocomplete="off" required>
+					<div class="login-input text-input">
 						<span class="input-placeholder">E-mail</span>
+            <% if (error === 'userNotFound') { %>
+						  <input type="text" name="email" class="form-input error" id="form-email" autocomplete="off" placeholder="@mail.com" autofocus required>
+            <% } else { %>
+						  <input type="text" name="email" class="form-input" value="<%= email %>" id="form-email" autocomplete="off" placeholder="@mail.com" required>
+            <% } %>
 					</div>
-					<div class="login-input">
-						<input type="password" name="password" class="form-input" id="form-password" autocomplete="off" required>
+					<div class="login-input text-input">
 						<span class="input-placeholder">Password</span>
+            <% if (error === 'wrongPassword') { %>
+              <input type="password" name="password" class="form-input error" id="form-password" autocomplete="off" placeholder="••••••••••••••••" autofocus required min="8">
+            <% } else { %>
+              <input type="password" name="password" class="form-input" id="form-password" autocomplete="off" placeholder="••••••••••••••••" required min="8">
+            <% } %>
 					</div>
+          <div class="login-input reset-connect">
+            <div class="forgotPassword">
+              <a href="">Forgot password?</a>
+            </div>
+            <div class="restLogged">
+              <input type="hidden">
+            </div>
+          </div>
 					<div class="login-input login-submit">
-						<input type="submit" id="form-submit">
+						<input type="submit" value="Accedi" id="form-submit">
 					</div>
 				</form>
+        <div class="errors">
+
+        </div>
 			</div>
 		</div>
 	</section>
+
+  <script src="/login/script.js"></script>
 </body>
 
 </html>

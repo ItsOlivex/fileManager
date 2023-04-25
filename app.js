@@ -1,7 +1,7 @@
 const express = require('express'),
-			passport = require('passport'),
 			session = require('express-session'),
 			bodyParser = require('body-parser'),
+			cookieParser = require('cookie-parser'),
 			dbConnection = require('./app/config/db-connect'),
 			loginRouter = require('./app/routes/login'),
 			fileManager = require('./app/file-manager/file-manager'),
@@ -20,6 +20,7 @@ db.getDb().connect(err => {
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -28,8 +29,6 @@ app.use(session({
 	resave: false,
 	maxAge: 1000 * 60 * 60,
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(loginRouter);
 app.use(homeRouter);
 app.use(fileManager);

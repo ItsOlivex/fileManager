@@ -15,182 +15,178 @@ body {
 	width: 100%;
 	height: 100vh;
 
-	--bg: #4e5873;
-	--detail: #545f7f;
-	--text: #e2e3e4;
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+
+	--light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--red: #DB504A;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3;
 }
 
 section {
 	position: relative;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: flex-start;
-	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(to top, #37415c, #3d4a6a);
+	background: var(--grey);
+  padding: 50px;
 }
 
+/* login-container */
 
-/* header */
-
-section .login-header {
+.login-container {
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	width: 100%;
-	min-height: 9vh;
-	max-height: 9vh;
-	padding: 0 100px;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+	flex-direction: column;
+	gap: 70px;
 }
 
-section .login-header .logo {
-	text-transform: uppercase;
-	font-size: 3.5vh;
-	font-weight: 500;
-	letter-spacing: 1px;
-	color: var(--text);
-}
-
-/* end header */
-
-
-
-
-
-/* login-container */
-
-section .login-section {
+.login-container .logo {
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 100%;
+	width: 100px;
+	height: 100px;
 }
-
-section .login-section .login-container {
-	position: relative;
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
-	width: 15.5vw;
-	height: 40vh;
-	padding: 15px;
-	box-shadow: 5px 5px 45px rgba(0, 0, 0, 0.4), inset 5px 5px 20px rgba(255, 255, 255, 0.15);
-}
-
 
 /* title */
 
-section .login-section .login-container .login-title {
+.login-container .login-title {
 	position: relative;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-	min-height: 9vh;
-	max-height: 9vh;
-	padding: 0 20px;
 }
 
-section .login-section .login-container .login-title h1 {
-	color: var(--text);
-	font-weight: 300;
-	font-size: 2.7vh;
-	letter-spacing: 1px;
-}	
-
-
+.login-container .login-title h1 {
+	font-size: 36px;
+	font-weight: 600;
+	color: var(--dark);
+	font-family: var(--lato);
+}
 
 /* inputs */
 
-section .login-section .login-container .login-form {
-	position: relative;
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
-	width: 100%;
-	height: 100%;
-	gap: 20px;
-	padding: 5px 40px;
+.login-container form {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
 }
 
-section .login-section .login-container .login-input {
-	position: relative;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	width: 100%;
-	height: 25%;
+.login-container form .login-input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
 }
 
-section .login-section .login-container .login-input.login-submit {
-	height: 50%;
+.login-container form .login-input span {
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 300;
+  font-family: var(--lato);
 }
 
-section .login-section .login-container .login-input .form-input{
-	position: relative;
-	width: 100%;
-	height: 4vh;
-	outline: none;
-	border: none;
-	background: none;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-	color: var(--text);
-	caret-color: var(--text);
-	font-size: 1.2vh;
-	letter-spacing: 1px;
-	font-weight: 300;
+.login-container form .login-input.text-input input {
+  position: relative;
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  outline-color: var(--blue);
+  border: none;
+  padding: 0 10px;
+  font-size: 16px;
+  font-family: var(--lato);
+  background: var(--light);
 }
 
-section .login-section .login-container .login-input .input-placeholder{
-	position: absolute;
-	left: 0;
-	font-weight: 300;
-	letter-spacing: 1px;
-	font-size: 1.5vh;
-	color: var(--text);
-	transition: 0.3s ease;
+.login-container form .login-input.text-input input.error {
+  outline-color: var(--red);
+  animation: error 0.5s ease-in-out 0.3s;
 }
 
-section .login-section .login-container .login-input .form-input:focus ~ .input-placeholder, 
-section .login-section .login-container .login-input .form-input:valid ~ .input-placeholder {
-	font-size: 1.1vh;
-	transform: translateY(-25px);
+.login-container form .login-input.login-submit input {
+  position: relative;
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-family: var(--lato);
+  background: var(--light-blue);
+  color: var(--light);
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.login-container form .login-input.login-submit input.active {
+  background: var(--blue);
+}
+
+.login-container form .login-input.reset-connect {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.login-container form .login-input.reset-connect .forgotPassword a{
+  text-decoration: underline;
+  font-size: 14px;
+  font-family: var(--lato);
+  color: var(--blue);
+  font-weight: 300;
+} 
+
+
+
+
+
+.login-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
 }
 
 
 
-section .login-section .login-container .login-input #form-submit {
-	position: relative;
-	width: 100%;
-	height: 40px;
-	background: #414e6e;
-	color: var(--text);
-	font-weight: 300;
-	letter-spacing: 1px;
-	outline: none;
-	border: none;
-	cursor: pointer;
-	transition: 0.3s ease-out;
-	font-size: 18px;
-}
-
-section .login-section .login-container .login-input #form-submit:hover {
-	background: #4f5a78;
-}
-
-
-section .login-section .login-container .login-input .form-input:-webkit-autofill,
-section .login-section .login-container .login-input .form-input:-webkit-autofill:hover, 
-section .login-section .login-container .login-input .form-input:-webkit-autofill:focus, 
-section .login-section .login-container .login-input .form-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0) inset !important;
-}
 
 /* end login container */
+
+
+
+@keyframes error {
+  0%{
+    transform: none;
+  } 20% {
+    transform: translateX(-5px);
+  }40% {
+    transform: translateX(5px);
+  }60% {
+    transform: translateX(-5px);
+  }80% {
+    transform: translateX(5px);
+  }
+}

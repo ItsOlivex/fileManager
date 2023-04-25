@@ -131,6 +131,15 @@
   font-family: var(--lato);
   font-weight: 300;
   left: 0px;
+  transition: .5s;
+  transform: translateX(-10px);
+  transition-timing-function: cubic-bezier(.87,-.41,.19,1.44);
+  opacity: 0;
+}
+
+#content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.fade {
+  opacity: 1;
+  transform: none;
 }
 
 #content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.active i.fa-caret-right {
