@@ -216,4 +216,26 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
       }
     });
   }
+
+
+
+  $scope.createFolder = () => {
+    let folders = document.querySelectorAll('.folder .folder-name');
+    folders.forEach((folder, i) => {
+      if (folder.className.includes('active')) {
+        
+      } else {
+
+      }
+    })
+  }
+
+
+
+
+
+
+
+
+
 });
