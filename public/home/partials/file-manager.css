@@ -142,6 +142,10 @@
   transform: none;
 }
 
+#content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.addFolder.active {
+  display: none;
+}
+
 #content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.active i.fa-caret-right {
   transform: rotate(90deg);
 }

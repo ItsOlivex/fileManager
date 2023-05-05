@@ -218,24 +218,13 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
   }
 
 
-
-  $scope.createFolder = () => {
-    let folders = document.querySelectorAll('.folder .folder-name');
+  $scope.createDirectory = () => {
+    let folders = document.querySelectorAll('.folder');
     folders.forEach((folder, i) => {
-      if (folder.className.includes('active')) {
+      if (folder.className.includes('addFolder')) {
         
-      } else {
-
       }
-    })
+    });
   }
-
-
-
-
-
-
-
-
 
 });
