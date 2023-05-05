@@ -216,4 +216,15 @@ app.controller('myCtrl', ($scope, $http, $timeout) => {
       }
     });
   }
+
+
+  $scope.createDirectory = () => {
+    let folders = document.querySelectorAll('.folder');
+    folders.forEach((folder, i) => {
+      if (folder.className.includes('addFolder')) {
+        
+      }
+    });
+  }
+
 });

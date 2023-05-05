@@ -41,7 +41,7 @@ class file_manager {
     let documentJson = [];
     documents.forEach(document => {
       if (document.id_folder) {
-        documentJson.push({ path: document.directory, name: document.name, type: 'fa-solid fa-folder-open' });
+        documentJson.push({ path: document.directory, name: document.name, type: 'fa-solid fa-folder-open', folder: 1 });
       } else if (document.id_file) {
         documentJson.push({ path: document.directory, name: document.name, type: 'fa-regular fa-file' });
       }
