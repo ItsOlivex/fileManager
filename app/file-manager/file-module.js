@@ -11,7 +11,6 @@ class file_manager {
   selectFolders(req, dir, callback) {
     db.getDb().query(db.queries.selectFolders, [dir, req.session.id_user], (err, folders) => {
       if (err) throw err;
-      console.log(folders);
       if (callback) callback(db.Json(folders));
     });
   }
@@ -36,6 +35,10 @@ class file_manager {
     });
   }
 
+  createFolder(req) {
+    
+  }
+
 
   JsonDocument(documents) {
     let documentJson = [];
@@ -48,7 +51,6 @@ class file_manager {
     });
     return documentJson;
   }
-
 }
 
 module.exports.file_manager = file_manager;

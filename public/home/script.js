@@ -15,9 +15,6 @@ allSideMenu.forEach((item, index) => {
 	})
 });
 
-
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -25,14 +22,6 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
-
-
 
 
 const switchMode = document.getElementById('switch-mode');
@@ -44,3 +33,23 @@ switchMode.addEventListener('change', () => {
 		document.body.classList.remove('dark');
 	}
 })
+
+
+/*const newFolder = document.querySelector('.folder.addFolder');
+const folderInput = document.querySelector('#folderName');
+document.querySelector('#folderName').focus();
+
+folderInput.addEventListener('focus', () => {
+	newFolder.classList.remove('active');
+});
+
+folderInput.addEventListener('blur', () => {
+	const folders = document.querySelectorAll('.folder');
+	folders.forEach((folder, i) => {
+		if (folder.className.includes('addFolder')) {
+      folder.parentNode.insertBefore(folder, folders[folders.length-1].nextSibling);
+    }
+	});
+  newFolder.classList.add('active');
+  newFolder.style.width = '100%';
+});*/

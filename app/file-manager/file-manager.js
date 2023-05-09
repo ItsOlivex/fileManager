@@ -26,4 +26,8 @@ router.post('/getFolderItems', checkSession, (req, res) => {
   })
 });
 
+router.post('/createFolder', (req, res) => {
+  res.send(req.body.folderName);
+});
+
 module.exports = router;
