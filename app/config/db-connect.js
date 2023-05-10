@@ -19,7 +19,7 @@ class dbConnection {
 	constructor(next) {
 		this.db = mysql.createConnection({
 			host: "myfilesddns.ddns.net",
-			user: "mac",
+			user: "pc",
 			password: "Motocross2004!6cpbhh42ay5te",
 			database: "myfiles"
 		});
