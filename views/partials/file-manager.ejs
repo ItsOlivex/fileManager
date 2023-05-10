@@ -31,6 +31,7 @@
     <div class="file-manager-main">
       <div class="file-manager-sidebar">
         <div class="folder-container">
+          
           <div class="folder" ng-repeat="folder in folders">
             <i class="fa-solid fa-caret-right" ng-click="showMore($index)"></i>
             <div class="folder-name" ng-click="openFolder($index);">
@@ -38,11 +39,14 @@
               <h4>{{ folder.name }}</h4>
             </div>
           </div>
-          <div class="folder addFolder active">
-            <div class="folder-name">
-              <h4>FFF</h4>
-            </div>
-          </div>
+
+          <!-- <div class="folder addFolder active">
+            <form action="/createFolder" method="post" class="folder-name">
+              <i class="fa-solid fa-plus"></i>
+              <input type="text" name="folderName" id="folderName">
+            </form>
+          </div> -->
+
         </div>
       </div>
       <div class="file-manager">
