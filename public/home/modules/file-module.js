@@ -63,7 +63,6 @@ export class file_manager {
   }
 
   openFolder(index) {
-    console.log(index);
     this.cl.post('/getFolderItems', { path: this.getFolderPath(index), fileName: this.getFolderName(index) }, files => {
       this.scope.files = files;
       this.setFolderActive(index);
@@ -97,6 +96,69 @@ export class file_manager {
       }
     }
   }
+
+  navDirectory(index) {
+    this.scope.folders.forEach((folder, i) => {
+      if (folder.name === this.scope.directories[index]) {
+        this.openFolder(i);
+      }
+    });    	
+  }
+
+  previusFolder() {
+    let directories = this.cl.getElements('.directory-item');
+    let directoryNames = this.cl.getElements('.directory-item h3');
+    directories.forEach((directory, i) => {
+      if (directory.className.includes('active') && i > 0) {
+        this.scope.folders.forEach((folder, j) => {
+          if (directoryNames[i-1].innerHTML === folder.name) {
+            this.openFolder(j);
+          }
+        });
+      }
+    });
+  }
+
+  createDirectory() {
+    let foldersName = this.cl.getElements('.folder .folder-name');
+    let folders = this.cl.getElements('.folder.ng-scope');
+    let addFolder = this.cl.getElement('.folder.addFolder');
+    let input = this.cl.getElement('#folderName');
+    if (addFolder.className.includes('active')) {
+      foldersName.forEach((folder, i) => {
+        if (folder.className.includes('active') && i !== this.scope.folders.length) {
+          this.cl.removeActive(addFolder);
+          folders[i].parentNode.insertBefore(addFolder, folders[i].nextSibling)
+          this.cl.setActive(folders[i]);
+        } else if(folder.className.includes('active') && i === this.scope.folders.length) {
+          this.cl.removeActive(addFolder);
+          folders[i].parentNode.insertBefore(addFolder, folders[i]);
+          this.cl.setActive(folders[i]);
+        }
+      });
+    }
+  }
+
+  inputFocus() {
+    this.cl.removeActive(this.cl.getElement('.folder.addFolder'));
+  }
+
+  inputBlur() {
+    let foldersName = this.cl.getElements('.folder .folder-name');
+    let folders = this.cl.getElements('.folder.ng-scope');
+    let addFolder = this.cl.getElement('.folder.addFolder');
+    let input = this.cl.getElement('#folderName');
+    if (addFolder.className.includes('active')) {
+      folders.forEach((folder, i) => {
+        if (folder.className.includes('active')) {
+        
+        }
+      });
+    }
+  }
+
+
+
 
 
 

@@ -34,22 +34,3 @@ switchMode.addEventListener('change', () => {
 	}
 })
 
-
-/*const newFolder = document.querySelector('.folder.addFolder');
-const folderInput = document.querySelector('#folderName');
-document.querySelector('#folderName').focus();
-
-folderInput.addEventListener('focus', () => {
-	newFolder.classList.remove('active');
-});
-
-folderInput.addEventListener('blur', () => {
-	const folders = document.querySelectorAll('.folder');
-	folders.forEach((folder, i) => {
-		if (folder.className.includes('addFolder')) {
-      folder.parentNode.insertBefore(folder, folders[folders.length-1].nextSibling);
-    }
-	});
-  newFolder.classList.add('active');
-  newFolder.style.width = '100%';
-});*/

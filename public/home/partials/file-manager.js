@@ -9,7 +9,7 @@ app.controller('myCtrl', async ($scope, $http, $timeout) => {
 
   fm.loadFolders();
   $scope.showMore = (index, callback) => {
-    fm.showMore(index); 
+    fm.showMore(index);
   }
   $scope.openFolder = index => {
     fm.openFolder(index);
@@ -17,83 +17,41 @@ app.controller('myCtrl', async ($scope, $http, $timeout) => {
   $scope.fileClick = index => {
     fm.fileClick(index);
   }
-
-  /*$
-  $scope.fileClick = (index) => {
-    let files = document.querySelectorAll('.file');
-    let name = document.querySelectorAll('.file .file-name h4')[index].innerHTML;
-    let folders = document.querySelectorAll('.folder.ng-scope .folder-name');
-    let foldersHTML = [];
-    folders.forEach((folder, i) => {
-      foldersHTML.push(document.querySelectorAll('.folder.ng-scope .folder-name h4')[i].innerHTML);
-    })
-    $timeout(() => {
-      if ($scope.files[index].type === "fa-solid fa-folder-open") {
-        if (foldersHTML.includes($scope.files[index].name)) {
-          post($http, '/getFolderItems', { path: $scope.folders[foldersHTML.indexOf($scope.files[index].name)].path, fileName: $scope.folders[foldersHTML.indexOf($scope.files[index].name)].name }, files => {
-            folders.forEach(folder => {
-              folder.classList.remove('active');
-            });
-            folders[foldersHTML.indexOf($scope.files[index].name)].classList.add('active');
-            $scope.files = files;
-            $scope.directories.push(name);
-            $timeout(() => {
-              $scope.setDirectoryActive($scope.directories.length - 1);
-            }, 0);
-          });
-        } else {
-          folders.forEach((folder, i) => {
-            if (folder.className === "folder-name active") {
-              $scope.showMore(i, () => {
-                $timeout(() => {
-                  folders = document.querySelectorAll('.folder.ng-scope .folder-name');
-                  for (let j = 0; j < $scope.folders.length; j++) {
-                    if ($scope.folders[j].name === $scope.files[index].name) {
-                      post($http, '/getFolderItems', { path: $scope.folders[j].path, fileName: $scope.folders[j].name }, files => {
-                        folders.forEach(folder => {
-                          folder.classList.remove('active');
-                        });
-                        folders[j].classList.add('active');
-                        $scope.files = files;
-                        $scope.directories.push(name);
-                        $timeout(() => {
-                          $scope.setDirectoryActive($scope.directories.length - 1);
-                        }, 0);
-                      });
-                    }
-                  }
-                }, 0);
-              });
-            }
-          });
-        }
-      }
-    }, 0);
+  $scope.navDirectory = index => {
+    fm.navDirectory(index);
+  }
+  $scope.previusFolder = () => {
+    fm.previusFolder();
+  }
+  $scope.createDirectory = () => {
+    fm.createDirectory();
+  }
+  $scope.inputFocus = () => {
+    fm.inputFocus();
+  }
+  $scope.inputBlur = () => {
+    fm.inputBlur();
   }
 
+  /*const newFolder = document.querySelector('.folder.addFolder');
+  const folderInput = document.querySelector('#folderName');
+  document.querySelector('#folderName').focus();
 
-  $scope.previusFolder = () => {
-    let folders = document.querySelectorAll('.folder.ng-scope .folder-name');
-    let foldersHTML = [];
+  folderInput.addEventListener('focus', () => {
+    newFolder.classList.remove('active');
+  });
+
+  folderInput.addEventListener('blur', () => {
+    const folders = document.querySelectorAll('.folder');
     folders.forEach((folder, i) => {
-      foldersHTML.push(document.querySelectorAll('.folder.ng-scope .folder-name h4')[i].innerHTML);
-    })
-    folders.forEach((folder, i) => {
-      if (folder.className === 'folder-name active') {
-        if (i > 0) {
-          let arrayPath = $scope.folders[i].path.split("/");
-          post($http, '/getFolderItems', { path: $scope.folders[foldersHTML.indexOf(arrayPath[arrayPath.length - 1])].path, fileName: $scope.folders[foldersHTML.indexOf(arrayPath[arrayPath.length - 1])].name }, files => {
-            folders.forEach(folder => {
-              folder.classList.remove('active');
-            });
-            folders[foldersHTML.indexOf(arrayPath[arrayPath.length - 1])].classList.add('active');
-            $scope.navDirectory(i - 1);
-            $scope.files = files;
-          });
-        }
+      if (folder.className.includes('addFolder')) {
+        folder.parentNode.insertBefore(folder, folders[folders.length-1].nextSibling);
       }
     });
-  }
+    newFolder.classList.add('active');
+  });
+
+
 
 
   $scope.createDirectory = () => {

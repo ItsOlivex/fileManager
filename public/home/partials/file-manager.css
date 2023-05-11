@@ -146,7 +146,7 @@
 }
 
 #content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.addFolder.active {
-  opacity: 0;
+  display: none;
 }
 
 #content main .main-item .file-manager-container .file-manager-main .file-manager-sidebar .folder-container .folder.addFolder form input {
