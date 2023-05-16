@@ -35,4 +35,13 @@ export class client {
     element.classList.toggle('active');
   }
 
+  blurActive(title) {
+    this.setActive(this.getElement('section.blur'));
+    this.getElement('.blur-title h1').innerHTML = title;
+  }
+
+  blurRemove() {
+    this.removeActive(this.getElement('section.blur'));
+  }
+
 }

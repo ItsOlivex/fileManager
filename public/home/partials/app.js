@@ -1,9 +1,13 @@
 import { file_manager } from "../modules/file-module.js";
+import { Accounts_module } from "../modules/accounts-module.js";
+import { client } from "../modules/client.js";
 
 const app = angular.module('myApp', []);
 
 app.controller('myCtrl', async ($scope, $http, $timeout) => {
   const fm = new file_manager($scope, $http, $timeout);
+  const am = new Accounts_module($scope, $http, $timeout);
+  const cl = new client($http);
 
   $scope.directories = [];
 
@@ -32,6 +36,22 @@ app.controller('myCtrl', async ($scope, $http, $timeout) => {
   $scope.inputBlur = () => {
     fm.inputBlur();
   }
+
+
+  am.getAccounts();
+  $scope.newAccount = () => {
+    am.newAccount();
+  }
+  $scope.removeAccount = (index) => {
+    am.removeAccount(index);
+  }
+
+
+  
+  $scope.removeBlur = () => {
+    cl.blurRemove();
+  }
+
 
   /*const newFolder = document.querySelector('.folder.addFolder');
   const folderInput = document.querySelector('#folderName');

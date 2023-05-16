@@ -34,3 +34,17 @@ switchMode.addEventListener('change', () => {
 	}
 })
 
+
+
+let textInputs = document.querySelectorAll('.input.text-input input');
+let submit = document.querySelector('.input.submit input');
+
+textInputs.forEach((input, i) => {
+  input.addEventListener('input', () => {
+    if (textInputs[0].value && textInputs[1].value && textInputs[2].value) {
+      submit.classList.add('active');
+    } else {
+      submit.classList.remove('active');
+    }
+  });
+});

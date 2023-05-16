@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 class dbConnection {
 
 	queries = {
+		selectUser: `SELECT * FROM Users WHERE email = ?`,
 		selectFolders: `SELECT Folders.name, Folders.directory, Folders.id_folder FROM myfiles.Folders 
 		inner join FolderAccess on FolderAccess.id_folder = Folders.id_folder 
 		inner join Users on FolderAccess.id_user = Users.id_user WHERE Folders.directory = ? AND Users.id_user = ?;`,
@@ -12,13 +13,17 @@ class dbConnection {
 		inner join FolderAccess on FolderAccess.id_folder = Folders.id_folder
 		inner join Users on FolderAccess.id_user = Users.id_user
 		WHERE Files.directory = ? AND Users.id_user = ?;`,
-		verifyDeviceKey: `SELECT * FROM devices WHERE uniquekey = ?`,
+		verifyDeviceKey: `SELECT * FROM Devices WHERE unique_key = ?`,
+		addDevice: `INSERT INTO Devices (brand, model, unique_key) values (?, ?, ?);`,
+		getAccounts: `SELECT Users.name, Users.email FROM Users where Users.permission > 1;`,
+		newUser: `INSERT INTO Users (email, name, surname, password, permission) values (?, ?, ?, ?, 2)`,
+		removeUser: `DELETE FROM Users where email = ?`,
 	}
 
 	constructor(next) {
 		this.db = mysql.createConnection({
 			host: "myfilesddns.ddns.net",
-			user: "pc",
+			user: "mac",
 			password: "Motocross2004!6cpbhh42ay5te",
 			database: "myfiles"
 		});

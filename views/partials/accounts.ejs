@@ -15,4 +15,51 @@
   </div>
 
   
+  <div class="accounts-container">
+    <div class="accounts-list">
+      <div class="account" ng-repeat='account in accounts'>
+        <div class="image">
+
+        </div>
+        <div class="infos">
+          <h3>{{ account.name }}</h3>
+          <h4>{{ account.email }}</h4>
+        </div>
+        <div class="delete" ng-click="removeAccount($index)">
+          <i class="fa-solid fa-trash"></i>
+        </div>
+      </div>
+    </div>
+    <div class="accounts-settings">
+      <div class="accounts-nav">
+        <h1 class="title">Account</h1>
+        <div class="addAccountIcon">
+          <i class="fa-regular fa-plus"></i>
+          <h4>New account</h4>
+        </div>
+      </div>
+      <div class="accounts-main">
+        <div class="account-item addAccount active">
+          <div class="input text-input">
+            <span class="input-placeholder">E-mail</span>
+            <input type="text" name="email" placeholder="@mail.com">
+          </div>
+          <div class="input text-input">
+            <span class="input-placeholder">Name</span>
+            <input type="text" name="name" placeholder="Example">
+          </div>
+          <div class="input text-input">
+            <span class="input-placeholder">Surname</span>
+            <input type="text" name="surname" placeholder="Example">
+          </div>
+          <div class="input submit">
+            <input type="button" value="New user" ng-click="newAccount()">
+          </div>
+        </div>
+        <div class="account-item">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

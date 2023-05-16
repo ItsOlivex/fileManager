@@ -10,19 +10,31 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="/home/style.css">
   <link rel="stylesheet" href="/home/partials/file-manager.css">
-  <link rel="stylesheet" href="/home/loading.css">
+    <link rel="stylesheet" href="/home/partials/accounts-manager.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>AdminHub</title>
+  <title>MyFiles | Home page</title>
 
 <body ng-app="myApp" ng-controller="myCtrl">
+
+  <section class="blur">
+    <div class="content">
+      <div class="blur-title">
+        <h1></h1>
+      </div>
+      <div class="blur-buttons">
+        <input type="button" class="confirm" value="Confirm" ng-click="confirm()">
+        <input type="button" value="Cancel" ng-click="removeBlur()">
+      </div>
+    </div>
+  </section>
 
 
   <!-- SIDEBAR -->
   <section id="sidebar">
     <a href="#" class="brand">
-      <i class='bx bxs-smile'></i>
-      <span class="text">AdminHub</span>
+      <i class="fa-regular fa-file"></i>
+      <span class="text">MyFiles</span>
     </a>
     <ul class="side-menu top">
       <li class="active">
@@ -74,7 +86,7 @@
     <nav>
       <div class="nav-item">
         <i class='bx bx-menu'></i>
-        <a href="#" class="nav-link">Categories</a>
+        <a href="#" class="nav-link"></a>
       </div>
       <div class="nav-item">
         <input type="checkbox" id="switch-mode" hidden>
@@ -113,7 +125,7 @@
 
 
   <script type="module" src="/home/script.js"></script>
-  <script type="module" src="/home/partials/file-manager.js"></script>
+  <script type="module" src="/home/partials/app.js"></script>
 </body>
 
 </html>

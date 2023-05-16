@@ -7,7 +7,7 @@ let authenticate = (req, res, next) => {
 	const email = req.body.email;
 	const password = crypto.createHash('md5').update(req.body.password).digest('hex');
 	if (validator.isEmail(email) && password.length >= 8) {
-		db.getDb().query("SELECT * FROM Users WHERE email = ?", [email], (err, rawUser) => {
+		db.getDb().query(db.queries.selectUser, [email], (err, rawUser) => {
 			if (err) throw err;
 			if (rawUser.length > 0) {
 				const user = db.Json(rawUser[0]);
@@ -38,6 +38,14 @@ let checkSession = (req, res, next) => {
 	}
 }
 
+let checkPermission = (req, res, next) => {
+	if (req.session.permission) {
+		next();
+	} else {
+		req.redirect('/home');
+	}
+}
+
 let logout = (req, res, next) =>  {
 	req.session.destroy();
 	next();
@@ -46,5 +54,6 @@ let logout = (req, res, next) =>  {
 module.exports = {
 	authenticate,
 	checkSession,
+	checkPermission,
 	logout
 }

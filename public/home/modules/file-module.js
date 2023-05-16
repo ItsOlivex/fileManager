@@ -3,9 +3,6 @@ import { client } from "./client.js";
 export class file_manager {
 
   constructor(scope, http, timeout) {
-    this.folders = [];
-    this.files = [];
-    this.directories = [];
     this.cl = new client(http);
     this.scope = scope;
     this.http = http;
@@ -149,11 +146,7 @@ export class file_manager {
     let addFolder = this.cl.getElement('.folder.addFolder');
     let input = this.cl.getElement('#folderName');
     if (addFolder.className.includes('active')) {
-      folders.forEach((folder, i) => {
-        if (folder.className.includes('active')) {
-        
-        }
-      });
+      
     }
   }
 

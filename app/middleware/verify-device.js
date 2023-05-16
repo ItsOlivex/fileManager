@@ -1,4 +1,5 @@
 const jsw = require("jsonwebtoken");
+const crypto = require('crypto');
 const uaParser = require('ua-parser-js');
 const useragent = require('express-useragent');
 const Mailer = require('../config/email-config');
@@ -11,8 +12,8 @@ let verify = (req, res, next) => {
     const deviceId = req.cookies.deviceId;
     const userAgent = req.headers['user-agent'];
     const parsed = uaParser(userAgent);
-    let vendor = parsed.device.vendor = null ? parsed.device.vendor : "Sconoscuto";
-    let model = parsed.device.model = null ? parsed.device.model : "Sconoscuto";
+    const vendor = parsed.device.vendor = null ? parsed.device.vendor : "Sconoscuto";
+    const model = parsed.device.model = null ? parsed.device.model : "Sconoscuto";
     if (deviceId) {
         db.getDb().query(db.queries.verifyDeviceKey, [deviceId], (err, device) => {
             if (err) throw err;
@@ -31,4 +32,8 @@ let verify = (req, res, next) => {
     }
 }
 
-module.exports.verify = verify;
+let generateRandomKey = (length) => {
+    return crypto.randomBytes(length).toString('hex');
+}
+
+module.exports = { verify, generateRandomKey };
